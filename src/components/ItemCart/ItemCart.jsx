@@ -3,20 +3,20 @@ import styles from "./itemCart.module.css";
 import { useCartContext } from "../../context/CartContext";
 
 
-const Cart = ({product}) => {
+export const ItemCart = ({item}) => {
 	const {removeProduct} = useCartContext();
 	return (
 		<div className={styles.cart}>
-			<img src={product.image} alt={product.title} />
+			<img src={item.image} alt={item.title} />
 			<div>
-				<p>Título: {product.title}</p>
-				<p>Cantidad: {product.quantity}</p>
-				<p>Precio u.: {product.price}</p>
-				<p>Subtotal: ${product.quantity * product.price} </p>
-				<button onClick={() => removeProduct(product.id)}>Eliminar</button>
+				<p>Título: {item.title}</p>
+				<p>Cantidad: {item.quantity}</p>
+				<p>Precio u.: {item.price}</p>
+				<p>Subtotal: ${item.quantity * item.price} </p>
+				<button onClick={() => removeProduct(item.id)}>Eliminar</button>
 			</div>
 		</div>
 	);
 };
 
-export default Cart;
+export default ItemCart;
